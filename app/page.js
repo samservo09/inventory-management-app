@@ -131,14 +131,14 @@ export default function Home() {
         <Box>
           <Box
             width="800px"
-            height="100px"
+            height="80px"
             bgcolor="#86989d"
             display="flex"
             alignItems="center"
             justifyContent="center"
-            sx={{ borderRadius: '8px', boxShadow: 3 }}
+            sx={{ borderRadius: '10px', boxShadow: 3 }}
           >
-            <Typography variant="h3" color="#e0e0d8">Inventory Items</Typography>
+            <Typography variant="h4" color="#e0e0d8">Inventory Items</Typography>
           </Box>
         </Box>
         <Stack
@@ -155,9 +155,9 @@ export default function Home() {
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
-                bgcolor="#f0f0f0"
+                bgcolor="#e0e0d8"
                 padding={5}
-                sx={{ border: '1px solid #ccc', borderRadius: '4px', boxShadow: 1 }}
+                sx={{ border: '1px solid #ccc', borderRadius: '10px', boxShadow: 1 }}
               >
                 <Typography variant="h5" color="#212121" textAlign="center">
                   {name.charAt(0).toUpperCase() + name.slice(1)}
