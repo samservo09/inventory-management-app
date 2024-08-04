@@ -82,8 +82,9 @@ export default function Home() {
         gap={2}
         sx={{
           backgroundColor: '#e0e0e0',
-          backgroundImage: 'url("/factory-background.jpg")', // Optional background
+          backgroundImage: 'url("/factory-background.jpg")',
           backgroundSize: 'cover',
+          padding: { xs: 2, sm: 3 }, // Add padding for smaller screens
         }}
       >
         <Modal open={open} onClose={handleClose}>
@@ -91,7 +92,7 @@ export default function Home() {
             position="absolute"
             top="50%"
             left="50%"
-            width={400}
+            width={{ xs: '90%', sm: 400 }} // Responsive width
             bgcolor="white"
             boxShadow={24}
             p={4}
@@ -115,7 +116,7 @@ export default function Home() {
               />
               <Button
                 variant="contained"
-                color="ochre" // Use your custom color here
+                color="ochre"
                 onClick={() => {
                   addItem(itemName);
                   setItemName('');
@@ -130,20 +131,21 @@ export default function Home() {
         <Button variant="contained" color="ochre" onClick={handleOpen}>Add New Item</Button>
         <Box>
           <Box
-            width="800px"
+            width="100%" // Full width
+            maxWidth="800px" // Max width
             height="80px"
             bgcolor="#86989d"
             display="flex"
             alignItems="center"
             justifyContent="center"
-            sx={{ borderRadius: '10px', boxShadow: 3 }}
+            sx={{ borderRadius: '10px', boxShadow: 3, padding: 2 }}
           >
-            <Typography variant="h4" color="#e0e0d8">Inventory Items</Typography>
+            <Typography variant="h4" color="#e0e0d8" sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}>Inventory Items</Typography>
           </Box>
         </Box>
         <Stack
-          width="800px"
-          height="300px"
+          width="100%" // Full width
+          maxWidth="800px" // Max width
           spacing={2}
           overflow="auto"
         >
@@ -153,17 +155,18 @@ export default function Home() {
                 width="100%"
                 minHeight="150px"
                 display="flex"
+                flexDirection={{ xs: 'column', md: 'row' }} // Stack on smaller screens
                 alignItems="center"
                 justifyContent="space-between"
                 bgcolor="#e0e0d8"
-                padding={5}
+                padding={3} // Responsive padding
                 sx={{ border: '1px solid #ccc', borderRadius: '10px', boxShadow: 1 }}
               >
-                <Typography variant="h5" color="#212121" textAlign="center">
+                <Typography variant="h5" color="#464034" textAlign="center">
                   {name.charAt(0).toUpperCase() + name.slice(1)}
                 </Typography>
-                <Typography variant="h5" color="#212121" textAlign="center">{quantity}</Typography>
-                <Stack direction="row" spacing={2}>
+                <Typography variant="h5" color="#464034" textAlign="center">{quantity}</Typography>
+                <Stack direction="row" spacing={2} justifyContent={{ xs: 'center', md: 'flex-end' }}>
                   <Button variant="contained" color="ochre" onClick={() => addItem(name)}>Add</Button>
                   <Button variant="contained" color="ochre" onClick={() => removeItem(name)}>Remove</Button>
                 </Stack>
