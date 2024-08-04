@@ -18,6 +18,7 @@ const theme = createTheme({
 
 export default function Home() {
   const [inventory, setInventory] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(''); // New state for search query
   const [open, setOpen] = useState(false);
   const [itemName, setItemName] = useState('');
 
@@ -69,6 +70,11 @@ export default function Home() {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // Filter inventory based on search query
+  const filteredInventory = inventory.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -143,6 +149,21 @@ export default function Home() {
             <Typography variant="h4" color="#e0e0d8" sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}>Inventory Items</Typography>
           </Box>
         </Box>
+        
+        {/* Search Field */}
+        <TextField
+          variant="outlined"
+          placeholder="Search Items..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          sx={{ 
+            width: { xs: '90%', sm: '80%', md: '60%' }, // Responsive width
+            marginBottom: 2,
+            backgroundColor: '#e0e0d8', // Search bar background color
+            borderRadius: '10px', // Border radius for search bar
+          }} 
+        />
+        
         <Stack
           width="100%" // Full width
           maxWidth="800px" // Max width
@@ -150,7 +171,7 @@ export default function Home() {
           overflow="auto"
         >
           {
-            inventory.map(({ name, quantity }) => (
+            filteredInventory.map(({ name, quantity }) => (
               <Box key={name}
                 width="100%"
                 minHeight="150px"
