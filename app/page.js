@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { collection, deleteDoc, doc, getDocs, getDoc, query, setDoc } from "firebase/firestore";
 import { Box, Button, Modal, Stack, TextField, Typography, createTheme, ThemeProvider } from "@mui/material";
-import { firestore } from '../firebase.js';
+import { firestore } from './firebase.js';
 
 const theme = createTheme({
   palette: {
