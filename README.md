@@ -1,3 +1,6 @@
+# inventory-management
+Second project under Headstarter AI. This project is a CRUD app allowing users to keep track of pantry items by adding or removing items and updating their quantities.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
